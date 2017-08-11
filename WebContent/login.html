@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>小贴吧</title>
+<script type="text/javascript" src="js/jquery-1.7.js"></script>
+<style type="text/css">
+	.errmsg{
+		color:red;
+		font-size:20px;
+		font-family:cursive;
+	}
+	.okmsg{
+		color:green;
+		font-size:22px;
+		font-family:serif;
+	}
+	#umsg,#gk{
+		display:none;
+	}
+	#denglu{
+	
+		font-size:33px;
+		font-family:serif;
+	}
+	
+    #main{
+width:300px;
+height:200px; position:absolute; left:70%; top:50%; margin-left:-150px; margin-top:-100px;
+
+} 
+</style>
+<script type="text/javascript">
+	$(function(){
+	  
+	    	
+	});
+	
+	function checkUname(){
+		var value = $("#uname").val().trim();
+		if(value == ""){
+			$("#umsg").show(1000);
+			$("#umsg").html("×").removeClass("okmsg").addClass("errmsg");
+			
+		}else{
+			$("#umsg").html("√").removeClass("errmsg").addClass("okmsg");
+			
+		}
+	}
+	function checkpsw(){
+		var value = $("#psw").val().trim();
+		if(value == ""){
+			$("#umsg2").show(1000);
+			$("#umsg2").html("×").removeClass("okmsg").addClass("errmsg");
+			
+		}else{
+			$("#umsg2").html("√").removeClass("errmsg").addClass("okmsg");
+			
+		}
+	}
+</script>
+</head>
+<body  style="background:url(images/background.jpg) no-repeat " id="main">
+<span id="denglu" >登录</span>
+	<form   action="do" method="get" >
+		<div >
+		<input type="hidden" name="m" value="login"/><br/>
+		<input id="uname" name="uname" value="请输入用户名" onblur="checkUname();"  />
+		<span id="umsg" class=""></span>
+		<br/>
+		<input  id="psw"  type="password" name="psw" value=""  onblur="checkpsw();"/>
+		<span id="umsg2" class=""></span><br/>
+		<input type="submit" value="登录" />
+		<a href="zc.jsp" >注册新帐号</a>
+	</div>
+	</form>
+	
+	
+</body>
+</html>
